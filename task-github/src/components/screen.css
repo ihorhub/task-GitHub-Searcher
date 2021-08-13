@@ -1,0 +1,107 @@
+body {
+  background-color: #a6b3cf;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px, red;
+}
+.firstScreen {
+  margin: 2px;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+div,
+h5,
+button,
+.block {
+  margin: 3px;
+  padding: 0px;
+}
+.c-button:hover {
+  background: #1d49aa;
+}
+
+.c-button {
+  min-width: 50px;
+  font-family: inherit;
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: #4d5f85;
+  color: #fff;
+  padding: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.c-button:hover {
+  background: #4b515e;
+}
+
+.c-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #cbd6ee;
+}
+.secondPage {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.form {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lisEl {
+  width: fit-content;
+  box-sizing: content-box;
+  font-size: medium;
+  font-family: monospace;
+}
+.image {
+  padding: 0px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  box-sizing: content-box;
+  border: 2px solid rgb(190, 137, 137);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.image:hover {
+  cursor: pointer;
+}
+.span {
+  background-color: rgb(238, 103, 103);
+  font-size: 14px;
+}
+
+.repoList {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: small;
+}
+.RepoName,
+.forks,
+.star,
+hr {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
