@@ -2,10 +2,13 @@ body {
   background-color: #a6b3cf;
 }
 .loading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 2px, red;
+  /* border: solid 2px, red; */
 }
 .firstScreen {
   margin: 2px;

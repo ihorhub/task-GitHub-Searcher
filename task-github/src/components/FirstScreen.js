@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 
 import FirstScrList from './FirstScrList'
-import style from './screen.css'
+import './screen.css'
 
 import { UserContext } from '../UserContext'
 
@@ -12,17 +12,16 @@ export default function FirstScreen() {
   const [isLoading, setIsLoading] = useState(null)
   const [searchData, setSearchData] = useState([])
 
-  //   todo тут не робив пошук ,як пошук по репозиторію(secondScreen), що підтягує зразу по кожній букві,  тому що багато  раз запит на сервак і пілся декілька запитів і спроб він мене блокував, Прийняв рішення банально написати правильне імя і тоді аж робити запит
-
   const changeHandler = (event) => {
     setSearchName(event.target.value)
   }
+
+  console.log(value, 'value')
   const handleSubmit = (e) => {
     e.preventDefault()
-    findUsers(e)
+    findUsers()
+    setSearchName('')
   }
-
-  // todo запити  маю виненсти в окремий сервіс, але можливо через якісь синиаксичеі помилки переставало давати запит,  я все стер ... і зробив просто в компоненті.. оскільки обмежений в часі .
 
   const findUsers = async () => {
     try {
@@ -37,11 +36,12 @@ export default function FirstScreen() {
     }
   }
 
-  // useEffect(() => {
-  //   findUser()
-  // }, [])
+  const LoadingIndicator = () => <div className="loading">Loading...</div>
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const dataIndicator = () => (
+    <div className="loading">server error... try egain later</div>
+  )
 
-  const LoadingIndicator = () => <div className={style.loading}>Loading...</div>
 
   return (
     <div>
@@ -52,12 +52,15 @@ export default function FirstScreen() {
             type="text"
             placeholder="Search name..."
             onChange={changeHandler}
+            value={searchName}
           ></input>
         </form>
       </div>
 
-      {isLoading || isLoading === null ? (
+      {isLoading ? (
         LoadingIndicator()
+      ) : searchData === undefined ? (
+        dataIndicator()
       ) : (
         <FirstScrList items={searchData} />
       )}

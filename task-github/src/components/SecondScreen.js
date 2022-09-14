@@ -2,12 +2,12 @@ import React, { useState, useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { UserContext } from '../UserContext'
 
-import style from './screen.css'
 import './screen.css'
+
 import SecondScrList from './SecondScrList'
 
 export default function SecondScreen() {
-  const { value, setValue } = useContext(UserContext)
+  const { value } = useContext(UserContext)
   const history = useHistory()
   const [repo, setRepo] = useState([])
   const [repoData, setRepoData] = useState([])
@@ -59,15 +59,13 @@ export default function SecondScreen() {
       value.name.toLowerCase().includes(e.target.value.toLowerCase())
     )
     setSearch(res)
-    console.log(res)
+   
   }
   const handleSubmit = (e) => {
     e.preventDefault()
   }
 
-  const LoadingIndicator = () => <div className={style.loading}>Loading...</div>
-
-  console.log(search, 'Search')
+  const LoadingIndicator = () => <div className="loading">Loading...</div>
 
   return (
     <div>
@@ -117,7 +115,7 @@ export default function SecondScreen() {
         </form>
       </div>
 
-      {search.map((item) => (
+      {search?.map((item) => (
         <SecondScrList item={item} key={item.id} />
       ))}
     </div>
