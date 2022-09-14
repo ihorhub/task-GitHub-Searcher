@@ -61,6 +61,16 @@ button,
   justify-content: center;
   align-items: center;
 }
+.input {
+  width: 30%;
+  height: 30px;
+  border: none;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
 .lisEl {
   width: fit-content;
   box-sizing: content-box;
